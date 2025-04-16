@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Isha-Raj-28/TestHandsON.git'
+            }
+        }
+        stage('Run JMeter Test') {
+            steps {
+                sh 'jmeter -n -t Blazemeter_Recording.jmx -l result.jtl'
+            }
+        }
+    }
+}
+ 
